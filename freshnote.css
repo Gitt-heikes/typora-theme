@@ -1,0 +1,908 @@
+/* === FreshNote Typora Theme === */
+/* A youthful, vibrant white theme for daily note-taking */
+/* Author: FreshNote Theme */
+/* Version: 1.0.0 */
+
+/* ============================================
+   1. CSS Variables
+   ============================================ */
+:root {
+  /* Colors */
+  --bg-color: #ffffff;
+  --text-color: #2D3436;
+  --primary-color: #6C5CE7;
+  --secondary-color: #0984E3;
+  --accent-color: #00B894;
+  --muted-color: #636E72;
+  --link-color: #00CEC9;
+  --code-bg: rgba(253, 121, 168, 0.15);
+  --blockquote-border: #55EFC4;
+  --highlight-bg: #FFEAA7;
+  --border-color: #E0E0E0;
+  --table-header-bg: #f8f9fa;
+  --code-block-bg: #f8f9fa;
+  
+  /* Fonts */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, 'Courier New', monospace;
+  
+  /* Spacing */
+  --line-height: 1.6;
+  --paragraph-margin: 0.8rem;
+  --heading-margin-top: 1.5rem;
+  --heading-margin-bottom: 0.8rem;
+  
+  /* Heading Icons */
+  --h2-icon: "##";
+  --h3-icon: "###";
+  --h4-icon: "▸";
+  --h5-icon: "▪";
+  --h6-icon: "◦";
+  
+  /* Background - cross line pattern (from phycat-prussian) */
+  --bg-pattern: url("data:image/svg+xml,%3Csvg width='30' height='30' viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h30v30H0z' fill='none'/%3E%3Cpath d='M0 0L15 15M30 0L15 15M0 30L15 15M30 30L15 15' stroke='%236C5CE7' stroke-width='0.3' opacity='0.06'/%3E%3C/svg%3E");
+  
+  /* Heading stacked dot icons - vertical arrangement */
+  --h1-dot-icon: url("data:image/svg+xml;utf8,<svg fill='%236C5CE7' height='16' viewBox='0 0 12 16' width='12' xmlns='http://www.w3.org/2000/svg'><circle cx='6' cy='8' r='2.5' opacity='0.5'/></svg>");
+  --h2-dot-icon: url("data:image/svg+xml;utf8,<svg fill='%230984E3' height='16' viewBox='0 0 12 16' width='12' xmlns='http://www.w3.org/2000/svg'><circle cx='6' cy='4' r='2' opacity='0.5'/><circle cx='6' cy='12' r='2' opacity='0.5'/></svg>");
+  --h3-dot-icon: url("data:image/svg+xml;utf8,<svg fill='%2300B894' height='16' viewBox='0 0 12 16' width='12' xmlns='http://www.w3.org/2000/svg'><circle cx='6' cy='3' r='1.8' opacity='0.5'/><circle cx='6' cy='8' r='1.8' opacity='0.5'/><circle cx='6' cy='13' r='1.8' opacity='0.5'/></svg>");
+  --h4-dot-icon: url("data:image/svg+xml;utf8,<svg fill='%23636E72' height='16' viewBox='0 0 12 16' width='12' xmlns='http://www.w3.org/2000/svg'><circle cx='3' cy='4' r='1.5' opacity='0.45'/><circle cx='9' cy='4' r='1.5' opacity='0.45'/><circle cx='3' cy='12' r='1.5' opacity='0.45'/><circle cx='9' cy='12' r='1.5' opacity='0.45'/></svg>");
+  --h5-dot-icon: url("data:image/svg+xml;utf8,<svg fill='%23636E72' height='16' viewBox='0 0 12 16' width='12' xmlns='http://www.w3.org/2000/svg'><circle cx='3' cy='3' r='1.3' opacity='0.4'/><circle cx='9' cy='3' r='1.3' opacity='0.4'/><circle cx='6' cy='8' r='1.3' opacity='0.4'/><circle cx='3' cy='13' r='1.3' opacity='0.4'/><circle cx='9' cy='13' r='1.3' opacity='0.4'/></svg>");
+  --h6-dot-icon: url("data:image/svg+xml;utf8,<svg fill='%23636E72' height='16' viewBox='0 0 12 16' width='12' xmlns='http://www.w3.org/2000/svg'><circle cx='3' cy='3' r='1.2' opacity='0.35'/><circle cx='9' cy='3' r='1.2' opacity='0.35'/><circle cx='3' cy='8' r='1.2' opacity='0.35'/><circle cx='9' cy='8' r='1.2' opacity='0.35'/><circle cx='3' cy='13' r='1.2' opacity='0.35'/><circle cx='9' cy='13' r='1.2' opacity='0.35'/></svg>");
+}
+
+/* ============================================
+   2. Base Styles
+   ============================================ */
+html, body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: var(--line-height);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   3. Writing Area
+   ============================================ */
+#write {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 30px;
+  font-size: 1rem;
+  color: var(--text-color);
+  background-image: var(--bg-pattern);
+  background-attachment: local;
+}
+
+/* ============================================
+   4. Heading Styles
+   ============================================ */
+#write h1 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+#write h1::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background: var(--h1-dot-icon) no-repeat center;
+  background-size: contain;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+#write h2 {
+  color: var(--secondary-color);
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+#write h2::before {
+  content: "💢";
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+
+#write h2::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background: var(--h2-dot-icon) no-repeat center;
+  background-size: contain;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+#write h2:hover::before {
+  content: "H2";
+  position: absolute;
+  left: -35px;
+  top: 0;
+  font-size: 0.7rem;
+  color: var(--muted-color);
+  background: rgba(9, 132, 227, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+#write h3 {
+  color: var(--accent-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 1.2rem;
+  margin-bottom: 0.6rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+#write h3::before {
+  content: "⚡";
+  margin-right: 0.4rem;
+  font-size: 1.2rem;
+}
+
+#write h3::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background: var(--h3-dot-icon) no-repeat center;
+  background-size: contain;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+#write h3:hover::before {
+  content: "H3";
+  position: absolute;
+  left: -35px;
+  top: 0;
+  font-size: 0.7rem;
+  color: var(--muted-color);
+  background: rgba(0, 184, 148, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+#write h4 {
+  color: var(--muted-color);
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  position: relative;
+  display: inline-block;
+  padding-left: 6px;
+  padding-right: 6px;
+  border: 1px solid var(--primary-color);
+  border-top: 4px solid var(--primary-color);
+}
+
+#write h4::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background: var(--h4-dot-icon) no-repeat center;
+  background-size: contain;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+#write h4:hover::before {
+  content: "H4";
+  position: absolute;
+  left: -35px;
+  top: 0;
+  font-size: 0.7rem;
+  color: var(--muted-color);
+  background: rgba(99, 110, 114, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+#write h5 {
+  color: var(--muted-color);
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 0.8rem;
+  margin-bottom: 0.4rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+#write h5::before {
+  content: "H5";
+  position: absolute;
+  left: -35px;
+  top: 0.18rem;
+  color: var(--muted-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#write h5::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background: var(--h5-dot-icon) no-repeat center;
+  background-size: contain;
+  margin-left: 0.3rem;
+  vertical-align: middle;
+}
+
+#write h5:hover::before {
+  content: "H5";
+  position: absolute;
+  left: -35px;
+  top: -15px;
+  font-size: 0.7rem;
+  color: var(--muted-color);
+  background: rgba(99, 110, 114, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+#write h6 {
+  color: var(--muted-color);
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 0.6rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.3;
+  position: relative;
+}
+
+#write h6::before {
+  content: "H6";
+  position: absolute;
+  left: -35px;
+  top: 0.18rem;
+  color: var(--muted-color);
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+#write h6::after {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 16px;
+  background: var(--h6-dot-icon) no-repeat center;
+  background-size: contain;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+#write h6:hover::before {
+  content: "H6";
+  position: absolute;
+  left: -35px;
+  top: -15px;
+  font-size: 0.7rem;
+  color: var(--muted-color);
+  background: rgba(99, 110, 114, 0.1);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: normal;
+}
+
+/* ============================================
+   5. Typography Styles
+   ============================================ */
+#write p {
+  margin-top: 0;
+  margin-bottom: var(--paragraph-margin);
+  text-align: justify;
+  text-justify: inter-ideograph;
+}
+
+#write a {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+#write a:hover {
+  border-bottom-color: var(--link-color);
+}
+
+#write strong {
+  font-weight: bold;
+  color: inherit;
+}
+
+#write em {
+  font-style: italic;
+}
+
+#write mark {
+  background-color: var(--highlight-bg);
+  padding: 0.1rem 0.3rem;
+  border-radius: 2px;
+}
+
+#write del {
+  text-decoration: line-through;
+  color: var(--muted-color);
+}
+
+#write u {
+  text-decoration: underline;
+  text-decoration-color: var(--link-color);
+}
+
+/* ============================================
+   6. List Styles (Enhanced)
+   ============================================ */
+#write ul, #write ol {
+  margin-top: 0;
+  margin-bottom: var(--paragraph-margin);
+  padding-left: 25px;
+}
+
+/* Unordered list with colored bullets */
+#write ul {
+  list-style-type: none;
+}
+
+#write ul > li {
+  position: relative;
+  margin-bottom: 0.4rem;
+  color: var(--text-color);
+}
+
+#write ul > li::before {
+  content: "•";
+  position: absolute;
+  left: -18px;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 1.2em;
+  line-height: 1.2;
+}
+
+/* Nested unordered lists */
+#write ul > li > ul > li::before {
+  content: "◦";
+  color: var(--secondary-color);
+}
+
+#write ul > li > ul > li > ul > li::before {
+  content: "▪";
+  color: var(--accent-color);
+}
+
+/* Ordered list with colored numbers */
+#write ol {
+  list-style-type: none;
+  counter-reset: item;
+}
+
+#write ol > li {
+  position: relative;
+  margin-bottom: 0.4rem;
+  counter-increment: item;
+  color: var(--text-color);
+}
+
+#write ol > li::before {
+  content: counter(item) ".";
+  position: absolute;
+  left: -25px;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 0.95em;
+  min-width: 20px;
+  text-align: right;
+}
+
+/* Nested ordered lists */
+#write ol > li > ol {
+  counter-reset: subitem;
+}
+
+#write ol > li > ol > li {
+  counter-increment: subitem;
+}
+
+#write ol > li > ol > li::before {
+  content: counter(item) "." counter(subitem) ".";
+  color: var(--secondary-color);
+  font-size: 0.9em;
+}
+
+#write li > ul, #write li > ol {
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+/* Task List - Enhanced */
+#write ul.task-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#write ul.task-list > li {
+  position: relative;
+  padding-left: 1.8rem;
+  margin-bottom: 0.5rem;
+}
+
+#write ul.task-list > li::before {
+  display: none;
+}
+
+#write ul.task-list li input[type="checkbox"] {
+  position: absolute;
+  left: 0;
+  top: 0.2rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  margin: 0;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 2px solid var(--primary-color);
+  border-radius: 4px;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+#write ul.task-list li input[type="checkbox"]:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+#write ul.task-list li input[type="checkbox"]:checked::after {
+  content: "✓";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+#write ul.task-list li input[type="checkbox"]:hover {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
+}
+
+/* Task list item text styling */
+#write ul.task-list li > * {
+  color: var(--text-color);
+}
+
+/* ============================================
+   7. Code Styles
+   ============================================ */
+#write code {
+  font-family: var(--font-mono);
+  background-color: var(--code-bg);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--text-color);
+}
+
+/* Code block wrapper */
+#write .md-fences {
+  position: relative;
+  margin: 1rem 0;
+}
+
+/* The actual code block - with top padding for language label */
+#write pre.md-fences {
+  background-color: var(--code-block-bg);
+  border-radius: 4px;
+  padding: 28px 0 3px 0;
+  margin: 0;
+  overflow-x: auto;
+  border: 1px solid var(--border-color);
+  -webkit-font-smoothing: initial;
+  line-height: 1.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  word-wrap: normal;
+}
+
+/* Typora's native language selector - positioned at top-right inside code block */
+#write .md-fences .md-lang,
+#write .md-fences .typora-code-lang-tooltip,
+#write .md-fences .code-tooltip,
+#write .md-fences .md-fences-languages {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: auto !important;
+  bottom: auto !important;
+  font-size: 0.75rem !important;
+  color: var(--muted-color) !important;
+  background-color: var(--code-block-bg) !important;
+  padding: 4px 8px !important;
+  border-radius: 0 4px 0 0 !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 500 !important;
+  border: none !important;
+  box-shadow: none !important;
+  z-index: 100 !important;
+  width: 100% !important;
+  text-align: right !important;
+  box-sizing: border-box !important;
+}
+
+/* Code block inner elements */
+#write pre.md-fences code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+#write pre.md-fences .CodeMirror {
+  background-color: transparent;
+}
+
+#write pre.md-fences code {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  font-size: 0.85em;
+  line-height: 1.5;
+}
+
+#write pre.md-fences .CodeMirror {
+  background-color: transparent;
+}
+
+/* Code Line Numbers - from redrail.css */
+#write .CodeMirror-gutters {
+  border-right: 1px solid var(--border-color);
+}
+
+#write .CodeMirror-linenumber {
+  color: var(--muted-color);
+  font-size: 0.85em;
+  padding: 0 4px 0 2px;
+  opacity: 0.5;
+  text-align: right;
+  min-width: 1.5em;
+}
+
+#write .CodeMirror-linenumber:hover {
+  opacity: 1;
+  color: var(--primary-color);
+}
+
+/* ============================================
+   8. Blockquote Styles
+   ============================================ */
+#write blockquote {
+  border-left: 4px solid var(--blockquote-border);
+  background-color: rgba(85, 239, 196, 0.1);
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: var(--text-color);
+  border-radius: 0 4px 4px 0;
+}
+
+#write blockquote p {
+  margin-bottom: 0.5rem;
+}
+
+#write blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+#write blockquote blockquote {
+  margin: 0.5rem 0;
+  background-color: rgba(85, 239, 196, 0.05);
+}
+
+/* ============================================
+   9. Table Styles (from redrail.css)
+   ============================================ */
+#write table {
+  padding: 0;
+  word-break: initial;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+#write table tr {
+  border-top: 1px solid var(--border-color);
+  margin: 0;
+  padding: 0;
+}
+
+#write table tr:nth-child(2n) {
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+#write table thead {
+  background-color: rgba(108, 92, 231, 0.15);
+}
+
+#write table thead th {
+  color: var(--text-color);
+  background-color: rgba(108, 92, 231, 0.15);
+  border-color: var(--border-color);
+  font-weight: bold;
+}
+
+#write table tr th {
+  font-weight: bold;
+  border: 1px solid var(--border-color);
+  border-bottom: 0;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+#write table tr td {
+  border: 1px solid var(--border-color);
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+#write table tr th:first-child,
+#write table tr td:first-child {
+  margin-top: 0;
+}
+
+#write table tr th:last-child,
+#write table tr td:last-child {
+  margin-bottom: 0;
+}
+
+#write table tr:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* ============================================
+   10. Special Elements
+   ============================================ */
+/* Horizontal Rule */
+#write hr {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: 2rem 0;
+}
+
+/* Images */
+#write img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  display: block;
+  margin: 1rem auto;
+}
+
+/* Footnotes */
+#write .md-footnote {
+  font-size: 0.85em;
+  color: var(--muted-color);
+  vertical-align: super;
+}
+
+#write .md-def-footnote {
+  padding: 0.5rem;
+  margin-top: 1rem;
+  border-left: 2px solid var(--blockquote-border);
+  background-color: rgba(85, 239, 196, 0.05);
+  font-size: 0.9em;
+}
+
+/* Table of Contents */
+#write .md-toc {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+#write .md-toc-content {
+  padding-left: 0;
+}
+
+#write .md-toc-item {
+  margin: 0.3rem 0;
+  line-height: 1.5;
+}
+
+#write .md-toc-item a {
+  color: var(--text-color);
+}
+
+/* Meta and Expand */
+#write .md-meta,
+#write .md-expand {
+  color: var(--muted-color);
+}
+
+/* Math Blocks */
+#write .mathjax-block {
+  margin: 1rem 0;
+}
+
+/* YAML Front Matter */
+#write pre.md-meta-block {
+  background-color: rgba(0, 0, 0, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  color: var(--muted-color);
+}
+
+/* ============================================
+   11. Sidebar & Outline Styles
+   ============================================ */
+/* Sidebar background - pure white */
+#typora-sidebar {
+  background-color: #ffffff;
+}
+
+/* Outline panel styling */
+.sidebar-content {
+  background-color: #ffffff;
+}
+
+/* Outline items */
+.outline-item {
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 2px 4px;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover effect for outline items */
+.outline-item:hover {
+  background-color: rgba(0, 184, 148, 0.1);
+}
+
+/* Active/Current outline item - light green highlight */
+.outline-active.outline-item {
+  background-color: rgba(0, 184, 148, 0.15);
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Outline item text */
+.outline-item .outline-label {
+  color: var(--text-color);
+  font-size: 0.95em;
+}
+
+/* Active outline item text */
+.outline-active.outline-item .outline-label {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* File tree sidebar items */
+.file-tree-node {
+  padding: 3px 0;
+}
+
+.file-node-content {
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin: 0 4px;
+}
+
+.file-node-content:hover {
+  background-color: rgba(0, 184, 148, 0.1);
+}
+
+.file-tree-node.active > .file-node-content {
+  background-color: rgba(0, 184, 148, 0.15);
+  border-left: 3px solid var(--accent-color);
+}
+
+/* Sidebar tabs */
+.sidebar-tabs {
+  border-bottom: 1px solid var(--border-color);
+  background-color: #ffffff;
+}
+
+.sidebar-tab {
+  color: var(--muted-color);
+  padding: 8px 16px;
+}
+
+.sidebar-tab.active {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+/* ============================================
+   12. Print Styles
+   ============================================ */
+@media print {
+  html, body {
+    background-color: white;
+    color: black;
+  }
+  
+  #write {
+    max-width: 100%;
+    padding: 0;
+    font-size: 12pt;
+  }
+  
+  #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 {
+    color: black;
+    page-break-after: avoid;
+  }
+  
+  #write a {
+    color: black;
+    text-decoration: underline;
+    border-bottom: none;
+  }
+  
+  #write a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+  
+  #write code,
+  #write pre.md-fences {
+    background-color: transparent;
+    border: 1px solid #ccc;
+  }
+  
+  #write blockquote {
+    background-color: transparent;
+    border-left-color: #999;
+  }
+  
+  #write table tr:nth-child(2n) {
+    background-color: transparent;
+  }
+  
+  #write img {
+    max-width: 100% !important;
+    page-break-inside: avoid;
+  }
+  
+  #write .md-toc {
+    background-color: transparent;
+    border: 1px solid #ccc;
+  }
+}
