@@ -90,7 +90,7 @@
 
 1. **下载主题文件**
    ```bash
-   git clone https://github.com/yourusername/freshnote-typora-theme.git
+   git clone https://github.com/Gitt-heikes/typora-theme.git
    ```
    或直接下载 ZIP 文件并解压
 
@@ -112,8 +112,8 @@
 
 ```bash
 # 克隆仓库
-git clone https://github.com/yourusername/freshnote-typora-theme.git
-cd freshnote-typora-theme
+git clone https://github.com/Gitt-heikes/typora-theme.git
+cd typora-theme
 
 # 运行安装脚本
 ./install.sh
@@ -259,14 +259,15 @@ FreshNote 支持所有标准 Markdown 语法，并进行了样式优化：
 
 ## 📮 联系方式
 
-- GitHub Issues: [提交问题](https://github.com/yourusername/freshnote-typora-theme/issues)
-- 邮箱: your.email@example.com
+- GitHub Issues: [提交问题](https://github.com/Gitt-heikes/typora-theme/issues)
+- 邮箱: 1054513663@qq.com
 
 ---
 
 <p align="center">
-  Made with 💜 by <a href="https://github.com/yourusername">Your Name</a>
+  Made with 💜 by <a href="https://github.com/Gitt-heikes">Gitt-heikes</a>
 </p>
+
 
 <p align="center">
   如果这个项目帮助了你，请给个 ⭐ Star 支持一下！
